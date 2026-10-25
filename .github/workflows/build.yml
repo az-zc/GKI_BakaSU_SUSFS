@@ -589,7 +589,8 @@ jobs:
         run: |
           set -euo pipefail
           echo "添加 BakaSU..."
-          curl -fLSs "https://raw.githubusercontent.com/Baka-SU/BakaSU/main/kernel/setup.sh" | bash -s -- "$BRANCH"
+          curl -fLSs "https://raw.githubusercontent.com/az-zx/BakaSU/main/kernel/setup.sh" | bash -s -- "$BRANCH"
+          echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-🐾星夜萌🐾"' >> ./common/arch/arm64/configs/gki_defconfig
 
           if [ -d "KernelSU/.git" ]; then
             KSU_ACTUAL_REF=$(git -C KernelSU rev-parse HEAD)
